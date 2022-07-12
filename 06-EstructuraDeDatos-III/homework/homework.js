@@ -61,55 +61,42 @@ BinarySearchTree.prototype.contains = function (value) {
 }
 
 BinarySearchTree.prototype.depthFirstForEach = function (callback, dfs = 'in-order') {
-  //let result = [];
   switch (dfs) {
     case 'post-order':
       if (this.left) {
-        //result = [...result, ...this.left.depthFirstForEach(dfs)];
         this.left.depthFirstForEach(callback, dfs);
       }
       if (this.right) {
-        //result = [...result, ...this.right.depthFirstForEach(dfs)];
         this.right.depthFirstForEach(callback, dfs);
       }
-      //result.push(this.value);
       callback(this.value);
       break;
     case 'pre-order':
-      //result.push(this.value);
       callback(this.value);
       if (this.left) {
-        //result = [...result, ...this.left.depthFirstForEach(dfs)];
         this.left.depthFirstForEach(callback, dfs);
       }
       if (this.right) {
-        //result = [...result, ...this.right.depthFirstForEach(dfs)]
         this.right.depthFirstForEach(callback, dfs);
       }
       break;
     case 'in-order':
       if (this.left) {
-        //result = [...result, ...this.left.depthFirstForEach(dfs)];
         this.left.depthFirstForEach(callback, dfs);
       }
-      //result.push(this.value);
       callback(this.value);
       if (this.right) {
-        //result = [...result, ...this.right.depthFirstForEach(dfs)]
         this.right.depthFirstForEach(callback, dfs);
       }
       break;
   }
-  //return result;
 }
 
 BinarySearchTree.prototype.breadthFirstForEach = function (callback) {
-  //let result = [];
   let queue = [];
   queue.push(this);
   while (queue.length > 0) {
     let tree = queue.shift();
-    //result.push(tree.value);
     callback(tree.value);
     if (tree.left) {
       queue.push(tree.left);
@@ -118,7 +105,6 @@ BinarySearchTree.prototype.breadthFirstForEach = function (callback) {
       queue.push(this.right);
     }
   }
-  //return result;
 }
 
 BinarySearchTree.prototype.isLeaf = function () {
