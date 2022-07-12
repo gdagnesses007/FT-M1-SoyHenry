@@ -14,7 +14,14 @@ function bubbleSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
-
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[i]) {
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+  }
+  return array;
 }
 
 
@@ -23,7 +30,16 @@ function insertionSort(array) {
   // el array recibido como parámetro utilizando arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-
+  for (let i = 1; i < array.length; i++) {
+    let curr = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j] > curr) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = curr;
+  }
+  return array;
 }
 
 
@@ -32,7 +48,16 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-
+  for (let i = 0; i < array.length - 1; i++) {
+    let min = array[i];
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] > array[j]) {
+        min = array[j];
+      }
+    }
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 
