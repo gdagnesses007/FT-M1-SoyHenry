@@ -102,7 +102,7 @@ BinarySearchTree.prototype.breadthFirstForEach = function (callback) {
       queue.push(tree.left);
     }
     if (tree.right) {
-      queue.push(this.right);
+      queue.push(tree.right);
     }
   }
 }
