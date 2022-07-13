@@ -6,7 +6,18 @@ function factorear(num) {
   // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
-
+  //let primos = [2, 3, 5, 7, 11, 17];
+  let result = [1];
+  let primo = 2;
+  while (num > 1) {
+    if (num % primo === 0) {
+      result.push(primo);
+      num /= primo;
+    } else {
+      primo++;
+    }
+  }
+  return result;
 }
 
 function bubbleSort(array) {
@@ -49,13 +60,13 @@ function selectionSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
   for (let i = 0; i < array.length - 1; i++) {
-    let min = array[i];
+    let min = i;
     for (let j = i + 1; j < array.length; j++) {
-      if (array[i] > array[j]) {
-        min = array[j];
+      if (array[min] > array[j]) {
+        min = j;
       }
     }
-    [array[i], array[j]] = [array[j], array[i]];
+    [array[i], array[min]] = [array[min], array[i]];
   }
   return array;
 }
